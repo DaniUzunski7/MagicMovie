@@ -1,9 +1,18 @@
 import express from 'express';
+import { movieServices } from '../services/movieService.js';
 
-const router = express.Router();
+const movieController = express.Router();
 
-router.get('/create', (req, res) => {
+movieController.get('/create', (req, res) => {
     res.render('create');
 });
 
-export default router;
+movieController.get('/:id/details', (req, res) => {
+    const movieId = req.params.id;
+    const movie = movieServices.getMovie(movieId);
+    console.log(movie);
+    
+    res.render('details', {movie});
+})
+
+export default movieController;

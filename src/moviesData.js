@@ -27,6 +27,7 @@ export default [
     category: 'Movie',
   },
   {
+    id: '3',
     title: 'Home Alone',
     genre: 'Comedy',
     description: `It is Christmas time and the McCallister family is
