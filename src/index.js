@@ -15,9 +15,10 @@ app.set("view engine", "hbs");
 app.set("views", "./src/views");
 
 app.use("/static", express.static("src/public"));
+app.use(express.urlencoded({extended: false}));
 
 app.use(routes);
 
-app.listen(5000, () =>
-  console.log("Server listening on http://localhost:5000...")
+app.listen(5001, () =>
+  console.log("Server listening on http://localhost:5001...")
 );
