@@ -1,4 +1,5 @@
 import movies from '../moviesData.js'
+import {v4 as uuid} from 'uuid';
 
 function getMovie(id){
     //What if movie is missing
@@ -7,6 +8,23 @@ function getMovie(id){
     return result;
 }
 
+function createMovie(movieData){
+    const newId = uuid();
+    
+    movies.push({
+        id: newId,
+        ...movieData
+    });
+
+    return newId; 
+}
+
+function getAllMovies(){
+    return movies;
+}
+
 export const movieServices = {
-    getMovie
+    getMovie,
+    createMovie,
+    getAllMovies
 }
