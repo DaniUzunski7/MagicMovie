@@ -21,7 +21,7 @@ export default [
     heart, she makes a deal with the evil sea witch, Ursula, to experience
     life on land.`,
     imageUrl: '/static/img/the-little-mermaid.jpg',
-    year: 2023,
+    year: '2023',
     director: 'Rob Marshall',
     rating: 7.2,
     category: 'Movie',
@@ -44,7 +44,7 @@ export default [
           own house with makeshift booby traps to stop the burglars and to bring
           them to justice.`,
     imageUrl: '/static/img/home-alone.jpeg',
-    year: 1970,
+    year: '1970',
     director: 'Chris Columbus',
     rating: 7.7,
     category: 'Movie',

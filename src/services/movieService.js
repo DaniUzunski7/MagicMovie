@@ -20,8 +20,22 @@ function createMovie(movieData){
     return newId; 
 }
 
-function getAllMovies(){
-    return movies;
+function getAllMovies(filters = {}){
+    let result = movies;
+    
+    if (filters.search){
+        result = movies.filter(movie => movie.title.toLocaleLowerCase().includes(filters.search.toLocaleLowerCase()));
+    }
+
+    if (filters.genre){
+        result = movies.filter(movie => movie.genre.toLocaleLowerCase() === filters.genre.toLocaleLowerCase());
+    }
+
+    if (filters.year){
+        result = movies.filter(movie => movie.year === filters.year);
+    }
+
+    return result;
 }
 
 export const movieServices = {
