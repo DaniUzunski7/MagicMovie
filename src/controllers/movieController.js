@@ -23,9 +23,9 @@ movieController.get('/:id/details', (req, res) => {
 })
 
 movieController.get('/search', (req, res) => {
-   
+    const movies = movieServices.getAllMovies();
     
-    res.render('search');
+    res.render('search', {movies});
 })
 
 export default movieController;
