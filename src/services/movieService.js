@@ -13,7 +13,8 @@ function createMovie(movieData){
     
     movies.push({
         id: newId,
-        ...movieData
+        ...movieData,
+        rating: Number(movieData.rating)
     });
 
     return newId; 

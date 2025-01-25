@@ -1,6 +1,7 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
 import routes from './routes.js'
+import showRating from './helpers/ratingHelper.js';
 
 const app = express();
 
@@ -8,7 +9,10 @@ app.engine(
   "hbs",
   handlebars.engine({
     extname: "hbs",
-  })
+    helpers: {
+      showRating
+    }
+  }),
 );
 
 app.set("view engine", "hbs");
