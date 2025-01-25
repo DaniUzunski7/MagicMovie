@@ -49,4 +49,15 @@ export default [
     rating: 7.7,
     category: 'Movie',
   },
+  {
+    id: '40a769f4-14e3-4f53-9fd3-19d09a0b57b2',
+    title: 'Avengers Endgame',
+    category: 'movie',
+    genre: 'Superhero',
+    director: 'Russo brothers',
+    year: '2019',
+    imageUrl: 'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg',
+    rating: 8.4,
+    description: " After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
+  }
 ];
