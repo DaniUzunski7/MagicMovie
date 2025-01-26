@@ -5,8 +5,14 @@ function create(castData) {
     return Cast.create(castData);
 }
 
-function getCasts(){
-    return Cast.find({});
+async function getCasts(filter = {}){
+    let query = Cast.find({});
+    
+    if (filter.exclude){
+        query = await query.nin('_id', filter.exclude)
+    }
+    
+    return query;
 }
 
 export const castServices = {
