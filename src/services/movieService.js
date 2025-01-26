@@ -1,9 +1,10 @@
 import movies from '../moviesData.js'
 import {v4 as uuid} from 'uuid';
+import Movie from '../models/Movie.js';
 
 function getMovie(id){
-    //What if movie is missing
-    const result = movies.find(movie => movie.id === id);
+    //*What if movie is missing
+    const result = Movie.findById(id)
 
     return result;
 }
@@ -20,8 +21,8 @@ function createMovie(movieData){
     return newId; 
 }
 
-function getAllMovies(filters = {}){
-    let result = movies;
+async function getAllMovies(filters = {}){
+    let result = await Movie.find({});
     
     if (filters.search){
         result = movies.filter(movie => movie.title.toLocaleLowerCase().includes(filters.search.toLocaleLowerCase()));
