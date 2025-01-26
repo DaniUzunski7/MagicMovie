@@ -19,22 +19,24 @@ function createMovie(movieData){
     return result; 
 }
 
-async function getAllMovies(filters = {}){
-    let result = await Movie.find({});
+function getAllMovies(filters = {}){
+    let query = Movie.find({});
     
     if (filters.search){
-        result = movies.filter(movie => movie.title.toLocaleLowerCase().includes(filters.search.toLocaleLowerCase()));
+        //TODO: fix partial case insensitive search
+        query = query.find({title: filters.search});
     }
 
     if (filters.genre){
-        result = movies.filter(movie => movie.genre.toLocaleLowerCase() === filters.genre.toLocaleLowerCase());
+        //TODO: add case insensitive search
+        query = query.find({genre: filters.genre})
     }
 
     if (filters.year){
-        result = movies.filter(movie => movie.year === filters.year);
+        query = query.find({year: Number(filters.year)})
     }
 
-    return result;
+    return query;
 }
 
 export const movieServices = {
