@@ -240,3 +240,8 @@ span {
   border-radius: 15px;
   margin-left: 10px;
 }
+
+#attach {
+  display: flex;
+  justify-content: center;
+}
