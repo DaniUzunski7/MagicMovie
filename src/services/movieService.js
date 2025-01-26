@@ -1,5 +1,4 @@
 import movies from '../moviesData.js'
-import {v4 as uuid} from 'uuid';
 import Movie from '../models/Movie.js';
 
 function getMovie(id){
@@ -10,15 +9,14 @@ function getMovie(id){
 }
 
 function createMovie(movieData){
-    const newId = uuid();
     
-    movies.push({
-        id: newId,
+    const result = Movie.create({
         ...movieData,
-        rating: Number(...movieData.rating)
+        rating: Number(...movieData.rating),
+        year: Number(...movieData.year)
     });
     
-    return newId; 
+    return result; 
 }
 
 async function getAllMovies(filters = {}){
