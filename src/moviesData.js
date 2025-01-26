@@ -1,6 +1,6 @@
 export default [
   {
-    id: '1',
+    id: '42a769f4-14e5-4f57-9fd3-19d09a0b57b2',
     title: 'Jungle Cuise',
     genre: 'Adventure',
     description:
@@ -12,7 +12,7 @@ export default [
     category: 'Movie',
   },
   {
-    id: '2',
+    id: '61a769f4-14e3-4f53-9fd3-19d09a0b17b2',
     title: 'The Little Mermaid',
     genre: 'Fantasy',
     description: `The youngest of King Triton's daughters, Ariel is a beautiful and spirited young mermaid with a thirst for adventure.
@@ -27,7 +27,7 @@ export default [
     category: 'Movie',
   },
   {
-    id: '3',
+    id: '40a769f4-14e3-4f53-7fd3-19d09a0b77b2',
     title: 'Home Alone',
     genre: 'Comedy',
     description: `It is Christmas time and the McCallister family is
