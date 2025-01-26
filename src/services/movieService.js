@@ -1,4 +1,3 @@
-import movies from '../moviesData.js'
 import Movie from '../models/Movie.js';
 
 function getMovie(id){
