@@ -40,9 +40,16 @@ function getAllMovies(filters = {}){
 
 async function attachCast(castId, movieId){
     const movie = await Movie.findById(movieId);
+
+    if (movie.casts.includes(castId)){
+        console.log('Cast already added!');
+
+        throw new Error('Cast already added!');
+    } 
     movie.casts.push(castId);
     await movie.save();
 
+    // return Movie.findByIdAndUpdate(movieId, {$push: {casts: castId}});
     return movie;
 }
 
