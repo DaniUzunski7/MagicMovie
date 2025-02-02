@@ -58,11 +58,16 @@ function deleteMovie(movieId){
     return Movie.findByIdAndDelete(movieId);
 }
 
+function updateMovie(movieId, newData){
+    return Movie.findByIdAndUpdate(movieId, newData);
+}
+
 
 export const movieServices = {
     getMovie,
     createMovie,
     getAllMovies,
     attachCast,
-    deleteMovie
+    deleteMovie,
+    updateMovie
 }
