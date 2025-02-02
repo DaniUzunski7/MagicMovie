@@ -36,7 +36,6 @@ async function login(email, password){
     return token;
 }
 
-
 export const authServices = {
     register,
     login
