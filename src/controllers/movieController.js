@@ -1,6 +1,7 @@
 import express from 'express';
 import { movieServices } from '../services/movieService.js';
 import { castServices } from '../services/castService.js';
+import Movie from '../models/Movie.js';
 
 const movieController = express.Router();
 
@@ -21,6 +22,9 @@ movieController.get('/:id/details', async (req, res) => {
     const movieId = req.params.id;
     const movie = await movieServices.getMovie(movieId).populate('casts');
     const isCreator = movie.creator && movie.creator?.toString() === req.user?.id;
+
+    console.log(movie.creator?.toString());
+    console.log(req.user?.id);
 
     res.render('movie/details', {movie, isCreator});
 })
@@ -48,6 +52,18 @@ movieController.post('/:id/attach-cast', async(req, res) => {
     await movieServices.attachCast(castId, movieId);
     
     res.redirect(`/movies/${movieId}/details`);
+});
+
+movieController.get('/:id/delete', async (req, res) => {
+    const movieId = req.params.id;
+    const movie = await movieServices.getMovie(movieId);
+
+    if(movie.creator?.toString() !== req.user?.id){
+        return res.redirect('/404');
+    }
+    
+    await movieServices.deleteMovie(movieId);
+    res.redirect('/');
 })
 
 export default movieController;

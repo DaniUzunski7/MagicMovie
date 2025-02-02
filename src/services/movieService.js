@@ -39,8 +39,8 @@ function getAllMovies(filters = {}){
     return query;
 }
 
-async function attachCast(castId, movieId){
-    const movie = await Movie.findById(movieId);
+ function attachCast(castId, movieId){
+    const movie = Movie.findById(movieId);
 
     if (movie.casts.includes(castId)){
         console.log('Cast already added!');
@@ -48,15 +48,21 @@ async function attachCast(castId, movieId){
         throw new Error('Cast already added!');
     } 
     movie.casts.push(castId);
-    await movie.save();
+    movie.save();
 
     // return Movie.findByIdAndUpdate(movieId, {$push: {casts: castId}});
     return movie;
 }
 
+function deleteMovie(movieId){
+    return Movie.findByIdAndDelete(movieId);
+}
+
+
 export const movieServices = {
     getMovie,
     createMovie,
     getAllMovies,
-    attachCast
+    attachCast,
+    deleteMovie
 }
