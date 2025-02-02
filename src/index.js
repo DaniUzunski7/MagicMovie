@@ -3,6 +3,7 @@ import handlebars from 'express-handlebars';
 import routes from './routes.js'
 import showRating from './helpers/ratingHelper.js';
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 
@@ -34,8 +35,10 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", "./src/views");
 
+//express config
 app.use("/static", express.static("src/public"));
 app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
 
 //Set up routes
 app.use(routes);
