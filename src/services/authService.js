@@ -2,7 +2,7 @@ import User from "../models/User.js"
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-const SECRET = 'NKFnaknweonfk32423nksanokvnlewflkn'
+const SECRET = process.env.JWT_SECRET || 'BASICSECRET';
 
 function register(userData){
 
@@ -25,7 +25,7 @@ async function login(email, password){
     if (!isValid){
         throw new Error('Invalid email or password!')
     }
-
+    
     //Generate token
     const payload = {
         id: user.id,

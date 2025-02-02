@@ -42,7 +42,6 @@ movieController.get('/:id/attach-cast', async (req, res) => {
 movieController.post('/:id/attach-cast', async(req, res) => {
     const castId = req.body.cast;
     const movieId = req.params.id;
-    console.log(movieId);
     
     await movieServices.attachCast(castId, movieId);
     
