@@ -7,12 +7,13 @@ function getMovie(id){
     return result;
 }
 
-async function createMovie(movieData){
+ function createMovie(movieData, creatorId){
     
-    const result = await Movie.create({
+    const result = Movie.create({
         ...movieData,
         rating: Number(movieData.rating),
-        year: Number(movieData.year)
+        year: Number(movieData.year),
+        creator: creatorId,
     });
     
     return result; 
