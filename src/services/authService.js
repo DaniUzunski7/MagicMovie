@@ -14,17 +14,13 @@ function register(userData){
 async function login(email, password){
     //Check if user exists
     const user = await User.findOne({email});
-    console.log(user);
     
     if (!user){
         throw new Error('Invalid email or password!');
     }
-
-    console.log(user.password, password);
     
     //Check if password is correct
     const isValid = await bcrypt.compare(password, user.password);
-    console.log(isValid);
     
     if (!isValid){
         throw new Error('Invalid email or password!')
