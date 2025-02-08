@@ -35,9 +35,11 @@ authController.post('/login', async (req, res) => {
     
     res.cookie('auth', token, {httpOnly: true});
     res.redirect('/');
-
+    
   } catch (err) {
-    return res.redirect('/404');
+    const error = getErrorMessage(err);
+    
+    return res.render('auth/login', {error});
   }
 });
 
