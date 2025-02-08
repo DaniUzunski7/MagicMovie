@@ -20,7 +20,7 @@ async function register(userData){
 }
 
 async function login(email, password){
-    //Check if user exists
+    //Checks if user exists
     const user = await User.findOne({email});
     
     if (!user){

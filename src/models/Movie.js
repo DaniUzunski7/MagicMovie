@@ -12,11 +12,18 @@ const movieSchema = new Schema({
     },
     category: {
         type: String,
-        minLength: [3, 'Category should be at least 3 characters long!']
+        minLength: [3, 'Category should be at least 3 characters long!'],
+        requied: true,
+        enum: [
+            'tv-show',
+            'animation',
+            'movie',
+            'documentary',
+            'short-film'
+        ]
     },
     genre: {
         type: String,
-        required: true,
         match: [/^[a-zA-Z 0-9]+$/, 'Genre should be alphanumeric, digits, and whitespaces only!'],
         minLength: [5, 'Genre should be at least 5 characters long!']
     },
@@ -38,6 +45,7 @@ const movieSchema = new Schema({
     },
     rating: {
         type: Number,
+        default: 1,
         min: 1,
         max: 5
     },
