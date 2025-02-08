@@ -4,7 +4,15 @@ import jwt from 'jsonwebtoken';
 
 const SECRET = process.env.JWT_SECRET || 'BASICSECRET';
 
-function register(userData){
+async function register(userData){
+    if(userData.password !== userData.rePassword){
+        throw new Error('Password missmatch!')
+    }
+    
+    const isUniuqeUser = await User.countDocuments({email: userData.email});
+    if (isUniuqeUser > 0){
+        throw new Error('Email already exists!')
+    }
 
     const newUser = User.create(userData);
 
