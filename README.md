@@ -82,7 +82,7 @@ Please make sure your code adheres to the project's coding standards and include
 License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-Contact
+## Contact
 For questions, feedback, or support, please contact:
 
 Developer: Dani Uzunski
